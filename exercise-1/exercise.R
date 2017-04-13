@@ -13,7 +13,7 @@ library(fueleconomy)
 View(vehicles)
 
 # Create a data.frame of vehicles from 1997
-vehicles.frame <- data.frame(vehicles[vehicles$year,], stringsAsFactors = FALSE)
+vehicles.frame <- data.frame(vehicles[vehicles$year == 1997,], stringsAsFactors = FALSE)
 
 # Use the `unique` function to verify that there is only 1 value in the `year` column of your new data.frame
 unique(vehicles$year)
@@ -27,8 +27,8 @@ worst.hwy <- bad.cars$id[bad.cars$hwy == min(bad.cars$hwy)]
 # Write a function that takes a `year` and a `make` as parameters, and returns 
 # The vehicle that gets the most hwy miles/gallon of vehicles of that make in that year
 best.mileage <- function(year, make) {
-  best.hwy <- data.frame(vehicles[vehicles$year == max(vehicles$hwy)]
-   return(
+  best.hwy <- vehicles[vehicles$make == make & vehicles$year == year,]
+   return(best.hwy
   
 }
 
